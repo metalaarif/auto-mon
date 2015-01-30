@@ -18,49 +18,49 @@ echo Seems like $num_service services are running.
 echo "#################################################################"
 
 $pgrep httpd
-if [ $? -ne 0 ]; then
+if [ $? != 0 ]; then
         echo "It looks like Apache Server is down"
         $apache_start
 fi
 
 $pgrep mysqld
-if [ $? -ne 0 ]; then
+if [ $? != 0 ]; then
         echo "It looks liks Mysql Server is down"
         $mysql_start
 fi
 
 $pgrep sshd
-if [ $? -ne 0 ]; then
+if [ $? != 0 ]; then
         echo "It looks liks SSH Server down"
         $ssh_start
 fi
 
 $pgrep varnishd
-if [ $? -ne 0 ]; then
+if [ $? != 0 ]; then
         echo "It looks like Varnish Server is down"
         $varnish_start
 fi
 
 $pgrep nrpe
-if [ $? -ne 0 ]; then
+if [ $? != 0 ]; then
         echo "It looks like NRPE service is down"
         $nrpe_start
 fi
 
 $pgrep memcached
-if [ $? -ne 0 ]; then
+if [ $? != 0 ]; then
         echo "It looks like Memcached Server is down"
         $memcached_start
 fi
 
 $pgrep java # it is infact tomcat but it requires java to work
-if [ $? -ne 0 ]; then
+if [ $? != 0 ]; then
         echo "It looks like Tomcat Server is down"
         $tomcat
 fi
 
 $pgrep munin-node
-if [ $? -ne 0 ]; then
+if [ $? != 0 ]; then
         echo "It looks like Munin-node is down"
         $munin_node_start
 fi
